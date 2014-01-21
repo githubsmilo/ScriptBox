@@ -1,0 +1,117 @@
+
+" sMiLo
+
+" -----------------------------------------------------------
+" Standard settings
+" -----------------------------------------------------------
+set nocp " set nocompatible
+filetype on " enable file type detection
+filetype indent on " enable loading the indent file for specific file types
+filetype plugin on " enable loading the plugin files for specific file types
+syntax on " turn on color settings
+color ron " specific color theme
+set ruler " give cursor position
+set backspace=indent,eol,start
+set history=1000
+set cmdheight=2 " use 1 screen lines for command-line
+set showmatch
+set ignorecase " case insensitive matching
+set incsearch " jump to the word you search during you type
+set hlsearch " highlight search match
+set iminsert=0
+set imsearch=0
+set pastetoggle=<F10>
+set noea
+set title
+
+" -----------------------------------------------------------
+" line settings
+" -----------------------------------------------------------
+set nu " print line number
+set ts=4 " tab stop indent
+set sw=4 " shift width indent
+set sts=4 " soft tab stop indent
+set autoindent " auto indentation
+set expandtab " convert all tab to space
+
+" -----------------------------------------------------------
+" language settings
+" -----------------------------------------------------------
+set encoding=euc-kr " default reading format is euc-kr
+set fencs=ucs-bom,utf-8,euc-kr.latin1
+set fileencoding=utf-8 " default writing format is UTF-8
+set termencoding=utf-8 " EUC-KR for terminal encoding
+
+" -----------------------------------------------------------
+" Compiler settings
+" -----------------------------------------------------------
+au FileType c set makeprg=gcc\ %
+au FileType cpp set makeprg=g++\ %
+au FileType java set makeprg=java\ %
+au FileType ruby set makeprg=ruby\ -wc\ %
+
+" -----------------------------------------------------------
+" map settings
+" -----------------------------------------------------------
+map <F2> :w<cr>
+"map <F3> <c-w>w
+"map <F4> :res<cr>
+"map <F5> :w<cr> :make %<cr> :cope<cr>
+map <F7> :Tlist<cr>
+map <F8> :TlistSessionSave
+map <F9> :TlistSessionLoad
+
+" show HEX mode
+"map <F11> :%!xxd<cr>
+
+" quit
+map <F12> :q<cr>
+
+" copy and paste
+"map <c-a> <esc> :0<cr>vG$
+
+" -----------------------------------------------------------
+" etc
+" -----------------------------------------------------------
+" automatically delete trailing Dos-returns,whitespace
+"autocmd BufRead * silent! %s/[\r \t]\+$//
+autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+
+" showmarks settings
+let showmarks_enable = 0
+
+" Automatic folding
+au BufWinLeave *.rb mkview
+au BufWinEnter *.rb silent loadview
+
+au BufWinLeave *.c mkview
+au BufWinEnter *.c silent loadview
+
+au BufWinLeave *.cpp mkview
+au BufWinEnter *.cpp silent loadview
+
+au BufWinLeave *.C mkview
+au BufWinEnter *.C silent loadview
+
+au BufWinLeave *.h mkview
+au BufWinEnter *.h silent loadview
+
+au BufWinLeave *.H mkview
+au BufWinEnter *.H silent loadview
+
+au BufWinLeave *.hpp mkview
+au BufWinEnter *.hpp silent loadview
+au BufWinEnter *.hpp set syntax=cpp
+
+" Taglist settings
+let Tlist_Process_File_Always = 0
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Display_Tag_Scope = 0
+let Tlist_Sort_Type = "name"
+let Tlist_Use_Right_Window = 0
+let Tlist_Display_Prototype = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_File_Fold_Auto_Close = 0
+let Tlist_Inc_Winwidth = 0
+let Tlist_WinWidth = 60
+
