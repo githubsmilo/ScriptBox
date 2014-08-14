@@ -1,21 +1,21 @@
+#!/usr/bin/python
 ########################################################
-# Collect contents of issues defined in given range
-# sequentially and export them to the HTML file.
+# Collect contents of given issue list
+# and export them to the HTML file.
 #
-# sMiLo / 2013.03.12
+# sMiLo / 2014.08.14
 ########################################################
 
 from bs4 import BeautifulSoup
 from urllib2 import urlopen, URLError
-import ClientCookie
+import mechanize
 from ClientForm import ParseResponse
 
 ########################################################
 USER_ID = 'ID_HERE'
 USER_PW = 'PW_HERE'
 
-ISSUE_NUM_START  = 1
-ISSUE_NUM_FINISH = 100
+ISSUE_LIST = [1,2,3,4,5]
 
 URL_LOGIN = 'https://LOGIN_URL_HERE/redmine/login'
 URL_ISSUE = 'https://ISSUE_URL_HERE/redmine/issues/'
@@ -29,7 +29,7 @@ def loginRedmine():
 	form['username'] = USER_ID
 	form['password'] = USER_PW
 	request = form.click()
-	ClientCookie.urlopen(request)
+	mechanize.urlopen(request)
 
 ########################################################
 def generateIndex(soup, i):
@@ -65,15 +65,11 @@ if __name__ == '__main__':
 	htmlBodyList = ""
 	htmlFoot = "</body></html>"
 	
-	for i in range (ISSUE_NUM_START,ISSUE_NUM_FINISH+1):
-        # To skip some issues.
-		#if i==50 or i==51:
-		#	continue
-		
+        for i in ISSUE_LIST:
 		# Parse given html file using BeautifulSoup
 		url = URL_ISSUE + str(i)
 		try:
-			response = ClientCookie.urlopen(url)
+			response = mechanize.urlopen(url)
 		except URLError, e:
 			if hasattr(e, 'code'):
 				if e.code==408:
