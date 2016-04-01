@@ -1,8 +1,6 @@
 #/bin/bash
 
 # common
-alias vi='vi -u $HOME/sMiLo_vimrc'
-alias vim='vim -u $HOME/sMiLo_vimrc'
 alias ll='ls -alh'
 alias grep='grep --exclude-dir=".svn"'
 
