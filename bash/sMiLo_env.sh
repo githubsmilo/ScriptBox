@@ -2,20 +2,10 @@
 
 # common
 alias ll='ls -alh'
-alias grep='grep --exclude-dir=".svn"'
+alias vi='vim -u ${HOME}/scripts/sMiLo_vimrc'
 
-# to show git branch
-export PS1="\[\033[00m\]\u@\h\[\033[00m\]:\[\033[00m\]\w\[\033[00m\] \`ruby -e \"print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[00m\]$\[\033[00m\] "
+# for git
+alias update_git='git fetch upstream && git merge upstream/master && git push origin master && git fetch origin --prune'
 
-# for local
-# TODO: Add some local rules.
-
-# for server
-# TODO: Add some server rules.
-
-# Greps on all local Java files.
-alias jgrep='find . -type f -name "*\.java" -print0 | xargs -0 grep --exclude-dir=".svn" --color -n "$@"'
-# Greps on all local C/C++ files.
-alias cgrep='find . -type f -name "*\.c*" -print0 | xargs -0 grep --exclude-dir=".svn" --color -n "$@"'
-# Greps on all local Python files.
-alias pgrep='find . -type f -name "*\.py" -print0 | xargs -0 grep --exclude-dir=".svn" --color -n "$@"'
+# for git
+export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
