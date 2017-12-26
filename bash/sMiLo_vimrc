@@ -10,7 +10,8 @@ filetype off " disable file type detection
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://github.com/powerline/powerline.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 filetype plugin indent on
 
@@ -53,11 +54,13 @@ set fileencoding=utf-8 " default writing format is UTF-8
 set termencoding=utf-8 " EUC-KR for terminal encoding
 
 " -----------------------------------------------------------
-" Powerline
+" Airline
 " -----------------------------------------------------------
-let g:Powerline_symbols = 'fancy'
-set t_Co=256 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set laststatus=2 " Always show statusline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='luna'
 
 " -----------------------------------------------------------
 " Etc

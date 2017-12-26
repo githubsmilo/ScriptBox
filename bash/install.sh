@@ -41,7 +41,7 @@ case "$(uname -s)" in
      wget --force-directories -O ${SCRIPTS}/sMiLo_env.sh https://raw.githubusercontent.com/withsmilo/ScriptBox/master/bash/sMiLo_env.sh
      wget --force-directories -O ${SCRIPTS}/sMiLo_vimrc https://raw.githubusercontent.com/withsmilo/ScriptBox/master/bash/sMiLo_vimrc
 
-     echo "Finished!"
+     echo "Finished! Please enter :PluginInstall after executing vim"
      ;;
 
    Linux)
