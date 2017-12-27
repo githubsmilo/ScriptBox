@@ -36,12 +36,13 @@ case "$(uname -s)" in
 
      echo "- Install my scripts..."
      SCRIPTS=${HOME}/scripts
+     mkdir -p ${SCRIPTS}
      wget --force-directories -O ${SCRIPTS}/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
      wget --force-directories -O ${SCRIPTS}/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
      wget --force-directories -O ${SCRIPTS}/sMiLo_env.sh https://raw.githubusercontent.com/withsmilo/ScriptBox/master/bash/sMiLo_env.sh
      wget --force-directories -O ${SCRIPTS}/sMiLo_vimrc https://raw.githubusercontent.com/withsmilo/ScriptBox/master/bash/sMiLo_vimrc
 
-     echo "Finished! Please enter :PluginInstall after executing vim"
+     echo "Finished! Please renew your terminal and execute vim, enter :PluginInstall"
      ;;
 
    Linux)
