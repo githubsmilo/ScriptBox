@@ -33,6 +33,7 @@ case "$(uname -s)" in
      VIM=${HOME}/.vim
      mkdir -p ${VIM}/autoload ${VIM}/bundle
      git clone https://github.com/VundleVim/Vundle.vim.git ${VIM}/bundle/Vundle.vim
+     git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 
      echo "- Install my scripts..."
      SCRIPTS=${HOME}/scripts
