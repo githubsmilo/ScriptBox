@@ -29,6 +29,11 @@ case "$(uname -s)" in
      cd ..
      rm -rf fonts
 
+     MAC_VIMRC=${HOME}/.vimrc
+     echo "- Update ${MAC_VIMRC}..."
+     echo $'\n# for sMiLo' >> ${MAC_VIMRC}
+     echo $'set guifont=Source\ Code\ Pro\ for\ Powerline:h14\n' >> ${MAC_VIMRC}
+
      echo "- Install Vundle for Vim plugins..."
      VIM=${HOME}/.vim
      mkdir -p ${VIM}/autoload ${VIM}/bundle
